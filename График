@@ -25,3 +25,110 @@ cin>>a>>b>>eps;
 cout<<X_Dich(a,b,eps);
 return 0;
 }
+
+
+
+#include <iostream>
+#include <math.h>
+  using namespace std;
+
+double Factorial(int n) {
+  if (n > 1) return n*Factorial(n - 1);
+  return 1;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  cout << Factorial(n) << endl;
+  return 0;
+}
+
+
+
+#include <iostream>
+#include <math.h>
+  using namespace std;
+
+int NOD(int n, int m) {
+  int i,k,rez;
+    if ( n > m) k = m;
+    else k = n;
+      for(i = 1; i <= k; i++) {
+        if ((m % i == 0) && (n % i == 0)) rez = i;
+      }
+  return rez;
+}
+
+int main() {
+  int n,m;
+  cin >> n >> m;
+  cout << NOD(n,m);
+  return 0;
+}
+
+
+
+#include <iostream>
+#include <math.h>
+  using namespace std;
+
+int NOD_2(int n, int m) {
+  int r = n % m;
+    if (r == 0) return m;
+    else return NOD_2(m,r);
+}
+
+int main() {
+  int n,m;
+  cin >> n >> m;
+  cout << NOD_2(n,m);
+  return 0;
+}
+
+
+
+#include <iostream>
+#include <math.h>
+  using namespace std;
+
+int Fib(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    else return Fib(n - 1) + Fib (n - 2);
+}
+
+int main() {
+  int n;
+  cin >> n;
+  cout << Fib(n);
+  return 0;
+}
+
+
+
+#include <iostream>
+#include <math.h>
+  using namespace std;
+
+int Fib(int n) {
+  int i,j,k,m;
+  m = 0;
+  k = 1;
+    for(i = 2; i <= n; i++) {
+      j = k;
+      k += m;
+      m = j;
+    }
+    return k;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  cout << Fib(n);
+  return 0;
+}
+
+
+
