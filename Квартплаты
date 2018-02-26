@@ -19,6 +19,7 @@ int main() {
   cout << endl << "Итого:" << s1 << " " << s2;
   return 0;
 }
+
 int Data(double* &c,int* &k) {
   int NomEl = 100;
   char text1[120] = "Вводите последовательно цену и количествово товара";
@@ -36,6 +37,7 @@ int Data(double* &c,int* &k) {
   while ((c[i] > 0.0) && (k[i] > 0));
       return i - 1;
 }
+
 void Print(double* c, int* k,int n) {
   char txt1[40] = "-----------";
   char txt2[40] = "N Цена количество";
@@ -46,6 +48,7 @@ void Print(double* c, int* k,int n) {
 }
   cout << txt1;  
 };
+
 void Sum(double* c,int* k,int n,double& s1,int& s2) {
   int i;
   s1 = 0.0;
@@ -55,7 +58,8 @@ void Sum(double* c,int* k,int n,double& s1,int& s2) {
     s2 = s2 + k[i];
     i++;
 }
-};  
+}; 
+
 void Insert(int k,int m1,double z1, double* z,int* m, int &n) {
   int i;
   for(i = n;i >= k + 1;i--) {
@@ -66,6 +70,7 @@ void Insert(int k,int m1,double z1, double* z,int* m, int &n) {
   m[k+1] = m1;
   n = n+1;
 };
+
 void Delete(int k, double* z, int* m, int &n) {
   int i;
   n = n - 1;
