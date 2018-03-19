@@ -93,3 +93,29 @@ int main() {
   cout << Func(n);
 return 0;
 }
+
+
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+double p (double n) { 
+  double x = 1; 
+  int i;
+  double a = sqrt (11 + 2); 
+  double b = sqrt (11 - 2); 
+  for (i = 0; i < n; i++) { 
+    if (i % 2 == 0) x = sqrt (x * sqrt(11 - 2 * a)); 
+      else x = sqrt (x * sqrt(11 - 2 * b)); 
+  } 
+return x; 
+} 
+
+int main() { 
+  int n; 
+  cin >> n; 
+  cout << p(n); 
+return 0; 
+}
