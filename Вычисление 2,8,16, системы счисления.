@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int sis;
+  cout <<"Введите систему счисления: ";
+  cin >> sis;
+  if (sis == 8) {
+    int digit = 1;
+    int num = 0;
+    int n, a, q, k;
+    cout << "Введите число в 10-й системе:";
+    cin >> n;
+    while (n != 0) {
+      q = n;
+      n = n / 8;
+      k = n * 8;
+      a = q - k;
+      num += a * digit;
+      digit *= 10;
+    }
+cout << "Число в 8-й системе: " << num << endl;
+return 0;
+  } 
+  if (sis == 2) {
+    int digit = 1;
+    int num = 0;
+    int n, a, q, k;
+    cout << "Введите число в 10-й системе:";
+    cin >> n;
+    if (n == 0) return 0;
+    while (n != 0) {
+      q = n;
+      n = n / 2;
+      k = n * 2;
+      a = q - k;
+      num += a * digit;
+      digit *= 10;
+    }
+cout << "Число в 2-й системе: " << num << endl;
+return 0;
+  }
+}
