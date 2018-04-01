@@ -1,0 +1,87 @@
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+
+using namespace std;
+
+typedef int matr;
+typedef int vectr;
+void Data(matr t);
+void Print(matr t);
+int Tp(matr t);
+void Dv(matr x, matr y, matr z);
+void Tr(matr x, vectr z);
+
+int main() {
+  rand();
+  matr a,b,c;
+  vectr d;
+  cout <<"Массив a";
+  Data(a);
+  Print(a);
+  Tp(a);
+  Print(a);
+  cout <<"Массив b";
+  Data(b);
+  Print(b);
+  Tp(b);
+  Print(b);
+  Dv(a,b,c);
+  cout <<"Массив c";
+  Print(c);
+  Tr(c,d);
+return 0;
+}
+
+void Data(matr t) {
+  int i,j;
+  for (i = 1; i <= 5; i++)
+    for (j = 1; j <= 5; j++)
+      t[i][j] = rand(21)-10;
+}
+
+void Print(matr t) {
+  int i,j;
+  cout <<'\n';
+  for (i = 1; i <= 5; i++) {
+    for (j = 1; j <= 5; j++)
+      cout << t[i][j] <<"";
+      cout <<'\n';
+  }
+}
+
+int Tp(matr t) {
+  int i,j,n,p;
+  n = 5;
+  for (i = 1; i<= n-1; i++)
+    for (j = i+1; j <= n; j++) {
+      p = t[i][j];
+      t[i][j] = t[j][i];
+      t[j][i] = p;
+    }
+return t;
+}
+
+void Tr(matr x, vectr z) {
+  int i,j,n,k;
+  n = 5;
+  for (i = 1; i <= n; i++) {
+    for (j = 1; j <= n; j++) {
+      k = (i-1)*n+j;
+      z[k] = x[i][j];
+      cin >> z[k];
+    }
+  }
+}
+
+void Dv(matr x, matr y, matr z) {
+  int i,j,k,s,n;
+  n = 5;
+  for (i = 1; i <= n; i++)
+    for (j = 1; j <= n; j++) {
+      s = 0;
+      for (k = 1; k <= n; k++)
+        s = s+x[i][k]*y[k][j];
+        z[i][j] = s;
+    }
+}
