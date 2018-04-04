@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int *p, num;
+  p = &num;
+  *p = 100;
+  cout << num << ' ';
+  (*p) ++;
+  cout << num << ' ';
+  (*p) --;
+  cout << num << ' ';
+  return 0;
+}
+
+
+#include <iostream>
+
+using namespace std;
+
+int *p1;
+int main() {
+  int *i, j[10];
+  double *f, g[10];
+  int x;
+  i = j;
+  f = g;
+  for(x = 0; x < 10; x++)
+    cout << i+x << ' ' << f+x <<'\n';
+return 0;
+}
+
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+int main() {
+  char str [80];
+  char token [80];
+  char *p, *q;
+  cout << "Введите предложение";
+  fgets(str, 80, stdin);
+  p = str;
+  while(*p) {
+    q = token;
+    while(*p != ' ' && *p) {
+      *q = *p;
+      q++;
+      p++;
+    }
+  if(*p) p++;
+  *q = '\0';
+  cout << token <<'\n';
+  }
+return 0;
+}
+
+
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+int main() {
+  char str[80];
+  char token[80];
+  int i, j;
+  cout << "Введите предл";
+  fgets(str, 80, stdin);
+  for(i = 0; ; i++) {
+    for(j = 0; str[i] != ' ' && str[i]; j++, i++)
+      token[j] = str[i];
+      token[j] = '\0';
+      cout << token <<'\n';
+      if(! str[i]) break;
+  }
+return 0;
+}
