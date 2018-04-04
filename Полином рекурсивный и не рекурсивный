@@ -3,6 +3,34 @@
 
 using namespace std; 
 
+int rec (int n, int x) { 
+  int h0 = 1; 
+  int h1 = x; 
+  int h2, h; 
+  if (n == 0) return h0;
+  if (n == 1) return h1;
+  while (n != 1) { 
+    h = x * h1 - (2-n) * h0;
+    h0 = h1; 
+    h1 = h2; 
+    n--; 
+  } 
+return h; 
+} 
+
+int main() {
+  int n, x;
+  cout << "Введите n, x: ";
+  cin >> n >> x;
+  cout << rec(n,x);
+return 0;
+}
+
+#include <iostream> 
+#include <math.h> 
+
+using namespace std; 
+
 int H(int n, int x) { 
   if (n == 0) return 1; 
   if (n == 1) return x; 
@@ -10,38 +38,10 @@ int H(int n, int x) {
 } 
 
 int main() { 
-  int n,x; 
+  int n,x;
+  cout << "Введите n, x: ";
   cin >> n >> x; 
   cout << H(n,x)<< endl; 
-return 0; 
-}
-
-
-
-#include <iostream> 
-#include <math.h> 
-
-using namespace std; 
-
-int rec (int n, int x) { 
-  int h0 = 1; 
-  int h1 = x; 
-  int h; 
-  if (n == 0) return h0;
-  if (n == 1) return h1;
-  while (n != 1) { 
-    h = (x * (h - 1)) - ((n - 2) * (h - 2)); ;
-    h0 = h1; 
-    h1 = h; 
-    n--; 
-  } 
-return h; 
-} 
-
-int main() { 
-  int n,x; 
-  cin >> n >> x; 
-  cout << rec(n, x); 
 return 0; 
 } 
 
@@ -74,16 +74,8 @@ using namespace std;
 
 int Func(int n) {
   int k, j;
-  if ((n > 100) && ((n % 2) != 0)) {
-    cout << "Бесконечное решение"; 
-  return 0;
-  }
-    else  k = n - 10; return k;
-  if ((n < 100) && (n % 2 != 0)) {
-    cout << "Бесконечное решение"; 
-  return 0;
-  }
-    else j = Func(Func(n + 4)); return j;
+  if (n > 100) { k = n - 10; return k;}
+  if (n < 100) return Func(Func(n + 4));
 }
 
 int main() {
