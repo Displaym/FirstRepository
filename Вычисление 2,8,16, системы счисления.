@@ -2,9 +2,6 @@
 
 using namespace std;
 
-void printer(int array[], int size);
-
-
 int main() {
   int sis;
   cout <<"Введите систему счисления: ";
@@ -47,10 +44,9 @@ int main() {
   }
   
   if (sis == 16) {
-  int digit = 1;
+    int digit = 1;
     int num = 0;
-    int answer[80] = {0};
-    int counter = 0;
+    int start_position = 64;
     int n, a, q, k;
     cout << "Введите число в 10-й системе:";
     cin >> n;
@@ -59,21 +55,12 @@ int main() {
       n = n / 16;
       k = n * 16;
       a = q - k;
-      answer[counter] = a;
-      counter++;
+      if(a > 9){
+        int digit = start_position + (a-9);
+        cout << (char)digit; 
+      }
+      else cout << a;
     }
-    printer(answer, counter);
   return 0;
   }
 }
-  void printer(int answer[], int size){
-    int start_position = 64;
-    for(int i = size; i < 0; i--){
-      if(answer[i] == 0)
-        break;
-        if(answer[i] < 9)
-          cout << answer[i];
-        else
-          cout << (char)(start_position + answer[i] - 9);
-    }
-  }
