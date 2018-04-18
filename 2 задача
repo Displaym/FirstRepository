@@ -77,3 +77,13 @@ void Dv(matr x, matr y, matr z) {
         z[i][j] = s;
     }
 }
+
+void Print(matr t) {
+  int i, j;
+  cout << "\n";
+  for(i=1; i<=5;i++) {
+    for(j=1;j<=5;j++)
+    cout << t[i][j] << " ";
+    cout << "\n";
+  }
+}
