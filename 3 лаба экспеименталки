@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main () {
+  char alphabet[34];
+  char letter;
+  int index;
+  for(letter = 'A', index = 0; letter <= 'Z'; letter++, index++)  alphabet[index] = letter; 
+  alphabet[index] = 0;
+  cout << "Буквы: " << alphabet;
+return 0;
+}
+
+
+
