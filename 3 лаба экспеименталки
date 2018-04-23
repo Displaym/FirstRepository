@@ -34,3 +34,33 @@ int StringToInt(char c[]) {
       n = n*10 + c[i] - '0';
 return n;
 }
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int find(char c[]);
+
+int main () {
+  char c[80];
+  cout << find(c);
+return 0;
+}
+
+int find (char c[]) {
+  int i, k, max, b;
+  for (i=0, max=0, b=-1; c[i]!=0; i++) {
+    if (c[i]=='}') k--;
+      if(c[i]=='{') {
+        k++;
+      }
+      if (k>max) { 
+        max = k;
+        b = i;
+      }
+  }
+  if(k!=0) return 0;
+return b;
+}
