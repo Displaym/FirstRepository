@@ -14,3 +14,23 @@ return 0;
 
 
 
+#include <iostream>
+
+using namespace std;
+
+int StringToInt(char c[]);
+
+int main () {
+  char c[30] = "F";
+  cout << StringToInt(c);
+return 0;
+}
+
+int StringToInt(char c[]) {
+  int n, i;
+  for (i=1; !(c[i]>='0' && c[i]<='9'); i++)
+    if (c[i]== '\0') return 0;
+    for (n=0; c[i]>='0' && c[i]<='9'; i++)
+      n = n*10 + c[i] - '0';
+return n;
+}
