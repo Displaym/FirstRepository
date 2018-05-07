@@ -1,0 +1,16 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Введите N:\nN = ";
+    cin  >> n;
+    int mas[n+1];
+    for (int i = 1; i <= n; i++) {
+      mas[i] = pow(2, i);
+      cout << mas[i] << ' ';
+    }
+    return 0;
+}
