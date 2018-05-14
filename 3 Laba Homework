@@ -80,3 +80,36 @@ int main() {
     }
 return 0;
 }
+
+
+
+B3
+#include <iostream>
+
+using namespace std;
+
+const int sz=30; 
+ 
+int main() {
+    int i, n, a[sz], k, l, buf, j;
+    cout << "Введите количество элементов: ";
+    cin >> n;
+    for (i=0; i<n; i++) {
+        a[i] = rand()%15;
+        cout << a[i] << " ";
+    }
+    cout << endl;
+    cout << "Введите k: ";
+    cin >> k;
+    cout << "Введите l: ";
+    cin >> l;
+    for (i=k, j=0; j<=(l-k)/2; i++, j++) {
+        buf=a[i];
+        a[i]=a[l-j];
+        a[l-j]=buf;
+    }
+    cout << endl;
+    for (i=0; i<n; i++)
+        cout << a[i] << " ";
+    cout << endl;
+}
