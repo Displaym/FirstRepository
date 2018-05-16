@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  enum paytype { CARD, CHECK
+  };
+  paytype ptype;
+  union payment {
+    char card[25];
+    long check;
+  }
+  info;
+  // присваивание значений info и ptype
+  switch(ptype) {
+    case CARD: cout << "Оплата по карте: " << info.card;
+    break;
+    case CHECK: cout << "Оплата чеком " << info.check;
+    break;
+  }
+return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  enum paytype {CARD, CHECK}ptype;
+  struct {
+    //paytype ptype;
+    union payment {
+      char card[25];
+      long check;
+    };
+  }
+  info;
+  switch(ptype) {
+    case CARD: cout << "Оплата по карте: " << info.card;
+    break;
+    case CHECK: cout << "Оплата чеком: " << info.check;
+    break;
+  }
+return 0;
+}
