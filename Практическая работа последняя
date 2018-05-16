@@ -22,3 +22,27 @@ catch (int i) { //перехват ошибки
   cout << "Конец";
 return 0;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+
+using namespace std;
+
+void Xhandler (int test) {
+  try {
+    if(test) throw test;
+  }
+  catch (int i) {
+    cout << "Перехват! Исключение №: " << i << '\n';
+  }
+}
+
+int main() {
+  cout << "Начало\n";
+  Xhandler(1);
+  Xhandler(2);
+  Xhandler(0);
+  Xhandler(3);
+  cout << "Конец";
+return 0;
+}
