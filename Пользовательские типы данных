@@ -26,16 +26,16 @@ return 0;
 using namespace std;
 
 int main() {
-  enum paytype {CARD, CHECK}ptype;
+  enum paytype {CARD, CHECK};
   struct {
     //paytype ptype;
-    union payment {
+    union {
       char card[25];
       long check;
     };
   }
   info;
-  switch(ptype) {
+  switch(paytype) {
     case CARD: cout << "Оплата по карте: " << info.card;
     break;
     case CHECK: cout << "Оплата чеком: " << info.check;
@@ -64,7 +64,8 @@ return 0;
 //////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 
-int main() {
+using namespace std;
+
   class queue {
     int q[100];
     int sloc, rloc;
@@ -114,20 +115,19 @@ int main() {
     cout << b.qget() << " ";  
     cout << b.qget() << "\n";
 return 0;
- }
+}
 ///////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 
 using namespace std;
 
-int main() {
-  struct cl {
-    int get_i(); // public
-    void put_i(int j); // по умножению
-    private:
-    int i;
-  };
-  int cl:: get_i() {
+struct cl {
+  int get_i(); // public
+  void put_i(int j); // по умножению
+  private:
+  int i;
+};
+  int cl::get_i() {
     return i;
   }
   void cl::put_i(int j) {
