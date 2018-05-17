@@ -55,17 +55,14 @@ int main() {
   int nSize, anArray[sz];
   cin >> nSize;
   for(int a=0; a<nSize; a++) {
-    anArray[nSize] = rand()%10;
-    cout << anArray[nSize] << " ";
+    anArray[a] = rand()%10;
+    cout << anArray[a] << " ";
   }
-  for(int a=0; a<nSize-1; a++) {
-    if (anArray[a] == anArray[a+1]) anArray[a] = 0;
+  cout<<endl;
+  for(int a=0; a<nSize; a++) {
+    if(anArray[a] == anArray[a+1]) anArray[a] = 0;
       else cout << anArray[a];
-    cout << endl;
-    if(anArray[a] == anArray[a+2]) anArray[a] = 0;
-      else cout << anArray[a];
-    cout << endl;
-    if
+    cout << "  ";
   }
 return 0;
 }
