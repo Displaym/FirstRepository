@@ -53,7 +53,7 @@ int main() {
   union {
     short int count;
     char ch[2];
-  }
+  };
   //как происходит непосредственные обращения к членам анонимного объединения//
   ch[0] = 'X';
   ch[1] = 'Y';
@@ -67,53 +67,54 @@ return 0;
 int main() {
   class queue {
     int q[100];
-    int sloc, vloc;
+    int sloc, rloc;
     public:
     queue(); //конструктор
     ~queue(); // деструктор
     void qput(int i);
-    int qyet();
+    int qget();
   };
-  //определение
+  //определение конструктора
   queue::queue() {
-    sloc = vloc = 0;
-    cout << "Очередь инициализирована." << endl;
+    sloc = rloc = 0;
+    cout << "Очередь инициализирована. \n";
   }
   //определение деструктора
   queue::~queue() {
-    cout << "Очередь разрешена" << endl;
+    cout << "Очередь разрушена. \n";
   }
   //Значение в очередь целочисленного значения 
-  void queue:: qput(int i) {
+  void queue::qput(int i) {
     if (sloc == 100) {
-      cout << "Очередь заполна" << endl;
+      cout << "Очередь заполна. \n";
       return;
     }
     sloc++;
     q[sloc] = i;
   }
-  //Извищение из очереди целочисленного значения
-  int queue:: qyet() {
-    if (vloc == sloc) {
-      cout << "Очередь пуста" << endl;
+  //Извлечение из очереди целочисленного значения
+  int queue:: qget() {
+    if (rloc == sloc) {
+      cout << "Очередь пуста. \n";
       return 0;
     }
-    vloc++;
-    return q[vloc];
+    rloc++;
+    return q[rloc];
   }
   int main() {
     queue a,b; //создание двух объектов класса queue
     a.qput(10);
     b.qput(19);
+    
     a.qput(20);
     b.qput(1);
-    cout << a.qyet() << " ";
-    cout << a.qyet() << " ";
-    cout << b.qyet() << " ";  
-    cout << b.qyet() << endl;
+    
+    cout << a.qget() << " ";
+    cout << a.qget() << " ";
+    cout << b.qget() << " ";  
+    cout << b.qget() << "\n";
 return 0;
-  }
-}
+ }
 ///////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 
@@ -149,10 +150,10 @@ class cl {
   int get_i():
   void put_i(int j):
 };
-int cl:: get_i() {
+inline int cl::get_i() {
   return i;
 }
-void cl:: put_i(int j) {
+inline void cl::put_i(int j) {
   i = j;
 }
 
@@ -169,21 +170,21 @@ using namespace std;
 
 union u_type {
   u_type(short int a); //открытые по умолчанию
-  void showchar();
+  void showchars();
   short int i;
   char ch[2];
 };
 //конструктор
-u_type:: u_type(short int a) {
+u_type::u_type(short int a) {
   i = a;
 }
 // отображение символов составляющих значение типа short int
-void u_type :: showchar() {
+void u_type :: showchars() {
   cout << ch[0] << " ";
-  cout << ch[1] << endl;
+  cout << ch[1] << "\n";
 }
 int main() {
   u_type u(1000);
-  u.showchar();
+  u.showchars();
 return 0;
 }
