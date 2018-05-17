@@ -44,40 +44,28 @@ return 0;
 
 
 #include <iostream>
-#include <fstream>
 #include <stdio.h> 
 
 using namespace std;
 
+const int sz = 30;
+
 int main() {
-  int nSize;
+  int nSize, anArray[sz];
   cin >> nSize;
-  int anArray[nSize] = rand();
-  int t = 0, i = 0;
-  int nNewSize = 5;
-  while(i < nSize - 1) {
-    if(anArray[i] == 0) {
-      break;
-    }
-      else {
-        if(anArray[i] == anArray[i + 1]) {
-          t = i;
-          do {
-            anArray[t] = anArray[t+1];
-            t++;
-          }
-  while(t < nSize - 1);
-    anArray[nSize-1] = 0;
+  for(int a=0; a<nSize; a++) {
+    anArray[nSize] = rand()%10;
+    cout << anArray[nSize] << " ";
   }
-    else {
-      i++;
-    }
-  }
-  for(int j=0; j<nSize;j++) {
-    cout << anArray[j] << ",";
-    }
+  for(int a=0; a<nSize-1; a++) {
+    if (anArray[a] == anArray[a+1]) anArray[a] = 0;
+      else cout << anArray[a];
     cout << endl;
-    }
+    if(anArray[a] == anArray[a+2]) anArray[a] = 0;
+      else cout << anArray[a];
+    cout << endl;
+    if
+  }
 return 0;
 }
 
