@@ -16,33 +16,41 @@ int main()
     return 0;
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+A43
 #include <iostream>
 
 using namespace std;
 
+const int sz = 30;
+
 int main() {
-  int n,i;
+  int n, mas[sz];
   cin >> n;
-  int mas[n];
-  cout << mas << endl;
-  for(i=0; i < n/2; i++) {
-    if(mas[i] % 2 != 0 && mas[i+1] % 2 == 1) {
-      cout << i; 
+  for(int a=0; a<n; a++) {
+  mas[a] = rand()%15;
+  cout << mas[a] << " ";
+  }
+  for(int a=0; a<n; a++) {
+    if(mas[a] % 2 == 0 && mas[a+1] % 2 == 0) {
+      cout << endl << mas[a]; 
       break;
     }
-      else if(mas[i] % 2 == 0 && mas[i+1] % 2 != 1) {
-        cout << i+1;
+      else if((mas[a] % 2 != 0) && (mas[a+1] % 2 != 0)) {
+        cout << endl << mas[a];
+        break;
       }
-              else (mas[i] % 2 != 0 && mas[i+1] % 2 != 1) {
-                cout << i;
-                break;
+              else if((mas[a] % 2 != 0) && (mas[a+1] % 2 == 0)) {
+               cout << endl << 0;
               }
+                else((mas[a] % 2 == 0) && (mas[a+1] % 2 != 0)); {
+                  cout << endl << 0;
+                }
   }
 return 0;
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include <stdio.h> 
