@@ -85,33 +85,38 @@ B3
 
 using namespace std;
 
-const int sz=30; 
- 
+const int sz = 30;
+
 int main() {
-    int i, n, a[sz], k, l, buf, j;
-    cout << "Введите количество элементов: ";
-    cin >> n;
-    for (i=0; i<n; i++) {
-        a[i] = rand()%15;
-        cout << a[i] << " ";
-    }
-    cout << endl;
-    cout << "Введите k: ";
-    cin >> k;
-    cout << "Введите l: ";
-    cin >> l;
-    for (i=k, j=0; j<=(l-k)/2; i++, j++) {
-        buf=a[i];
-        a[i]=a[l-j];
-        a[l-j]=buf;
-    }
-    cout << endl;
-    for (i=0; i<n; i++)
-        cout << a[i] << " ";
-    cout << endl;
+  int n, mas[sz], a, b;
+  cin >> n;
+  for(a=0; a<n; a++) {
+    mas[a] = rand()%15;
+    cout << mas[a] << " ";
+  }
+  //поиск максимального значения
+  int max = mas[0];
+  for(a=0; a<n; ++a) {
+    if(mas[a] > max) max = mas[a];
+  }
+  cout << endl <<"Максимальное значение: " << max;
+  //поиск минимального значения
+  int min = mas[0];
+  for(a=0; a<n; ++a) {
+    if(mas[a] < min) min = mas[a];
+  }
+  cout << endl << "Минимальное значение: " << min;
+  //реверс массива
+  for(a=0; a<n/2; a++) {
+    b = mas[a];
+    mas[a] = mas[n-a-1];
+    mas[n-a-1] = b;
+  }
+  cout << endl;
+  for(a=0; a<n; a++) cout << mas[a] << " ";
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 С3
 #include <iostream>
