@@ -88,7 +88,7 @@ using namespace std;
 const int sz = 30;
 
 int main() {
-  int n, mas[sz], a, b;
+  int n, mas[sz], a, b, b1, b2;
   cin >> n;
   for(a=0; a<n; a++) {
     mas[a] = rand()%15;
@@ -97,16 +97,24 @@ int main() {
   //поиск максимального значения
   int max = mas[0];
   for(a=0; a<n; ++a) {
-    if(mas[a] > max) max = mas[a];
+    if(mas[a] > max) {
+      max = mas[a]; 
+      b1 = a;
+    } 
   }
   cout << endl <<"Максимальное значение: " << max;
+  cout << endl <<"Индекс макс. значения: " << b1;
   //поиск минимального значения
   int min = mas[0];
   for(a=0; a<n; ++a) {
-    if(mas[a] < min) min = mas[a];
+    if(mas[a] < min) {
+      min = mas[a];
+      b2 = a;
+    } 
   }
   cout << endl << "Минимальное значение: " << min;
-  //реверс массива
+  cout << endl <<"Индекс мин. значения: " << b2;
+  //реверс массива 
   for(a=0; a<n/2; a++) {
     b = mas[a];
     mas[a] = mas[n-a-1];
