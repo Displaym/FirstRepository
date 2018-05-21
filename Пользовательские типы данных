@@ -27,15 +27,16 @@ using namespace std;
 
 int main() {
   enum paytype {CARD, CHECK};
+  int ptype;
+  cin >> ptype;
   struct {
-    paytype ptype = CARD;
     union {
       char card[25];
       long check;
     };
   }
   info;
-  switch(info.ptype) {
+  switch(ptype) {
     case CARD: cout << "Оплата по карте: " << info.card;
     break;
     case CHECK: cout << "Оплата чеком: " << info.check;
