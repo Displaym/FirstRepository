@@ -12,52 +12,58 @@ int main () {
 return 0;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 
 using namespace std;
 
-void swap(char c[]) {
-  int i,j;
-  for (i=0; c[i] !='\0'; i++);
-    for (j=0,i--; i>j; i--,j++) { 
-      char s; 
-      s=c[i]; 
-      c[i]=c[j]; 
-      c[j]=s; 
+void swap()
+{
+    char c[20] = " hello world ";
+    int i, j;
+    for (i = 0; c[i] != '\0'; i++);
+    for (j = 0, i--; i > j; i--, j++)
+    {
+        char s;
+        s = c[i];
+        c[i] = c[j];
+        c[j] = s;
+        //  cout << s;
     }
+    for (int i = 0; i < 20; i++) cout << c[i];
+}
+int main() {
+  swap();
+return 0;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+
+using namespace std;
+
+int StringToInt() {
+    char c[10] = { '1','2','3','4','5','6','7','8','9' };
+    for (int i = 0; i < 10; i++) cout << c[i] << ' ';
+    cout << endl;
+    int n[9] = { 0,0,0,0,0,0,0,0,0 };
+    for (int i = 0; !(c[i] >= '0' && c[i] <= '9'); i++)
+        if (c[i] == '\0') return 0;
+    for (int i=0; c[i] >= '0' && c[i] <= '9'; i++)
+        n[i] = n[i] * 10 + c[i] - '0';
+    for (int i = 0; i < 9; i++) cout << n[i] << ' ';
+    cout << endl << n[3] + n[4] << endl;
+ 
 }
 
 int main() {
-  char c[10];
-  fgets(c, 10, stdin);
-  swap(c);
+  StringToInt();
 return 0;
 }
 
-
-#include <iostream>
-
-using namespace std;
-
-int StringToInt(char c[]);
-
-int main () {
-  char c[30] = "F";
-  cout << StringToInt(c);
-return 0;
-}
-
-int StringToInt(char c[]) {
-  int n, i;
-  for (i=1; !(c[i]>='0' && c[i]<='9'); i++)
-    if (c[i]== '\0') return 0;
-    for (n=0; c[i]>='0' && c[i]<='9'; i++)
-      n = n*10 + c[i] - '0';
-return n;
-}
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 
