@@ -13,6 +13,33 @@ return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+B3
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+const int sz = 30;
+int main() {
+  char mas[sz], mas1[sz];
+  int k,b,c;
+  fgets(mas, sz, stdin);
+  cout << "Введите k: ";
+  cin >> k;
+  b = strlen(mas);
+  for(int i = k,j=0; i>=k && i<b; i++) {
+    mas1[j] = mas[i];
+    j++;
+  }
+  c = strlen(mas1);
+  for(int i=0; i<k; i++,c++) {
+    mas1[c] = mas[i];
+  }
+ cout << mas1;
+return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 B9
 #include <iostream>
 #include <string.h>
