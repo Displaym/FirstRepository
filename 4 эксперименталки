@@ -64,4 +64,89 @@ return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Cоставить программу, с помощью которой можно расположить фамилии студентов Вашей группы в порядке убывания среднего балла,
+полученного по результатам сдачи зимней экзаменационной сессии.
 
+#include <iostream>
+#include <cstdio>
+#include <iomanip>
+#include <string.h>
+
+using namespace std;
+
+const int n = 3;
+const int m = 4;
+struct student_one { /* для данных по одному студенту */
+	char fio[30]; /*поле формирования фамилии и имени студента*/
+	int marks[m]; /*поле подмассив оценок, полученных в сессию*/
+	double sb;    /*поле для среднего балла */
+};
+typedef student_one student_all[n]; /* массив  для формирования данных по всем  студентам  Вашей   группы */
+student_all group;
+/*Процедура ввода данных и вычисления среднего балла для каждого студента группы*/
+int   i, k, s;
+void ReadData(student_all r) {
+	strcpy(r[1].fio, " Иванов Андрей");  /*формирование данных по первому студенту*/
+	r[1].marks[1] = 4;
+	r[1].marks[2] = 5;
+	r[1].marks[3] = 3;
+	r[1].marks[4] = 3;
+	strcpy(r[2].fio, "  Мунтян Светлана"); /* формирование данных по второму студенту */
+	r[2].marks[1] = 4;
+	r[2].marks[2] = 4;
+	r[2].marks[3] = 5;
+	r[2].marks[4] = 3;
+	strcpy(r[3].fio, " Boiko Viacheslav"); /* формирование данных по третьему студенту */
+	r[3].marks[1] = 4;
+	r[3].marks[2] = 5;
+	r[3].marks[3] = 5;
+	r[3].marks[4] = 5;
+	for (i = 1; i <= n; i++) /* вычисление среднего балла для каждого студента*/
+	{
+		s = 0;
+		for (k = 1; k <= m; k++)
+			s = s + r[i].marks[k];
+		r[i].sb = s / m;
+	}
+}
+
+/*процедура вывода результатов*/
+void WriteData(student_all r) {
+	setlocale(LC_ALL, "Russian");
+	for (int i = 1; i <= n ; i++)
+		cout << "  " << r[i].fio << "    " << r[i].sb << endl;
+};
+
+/*процедура сортировки методом выбора*/         
+int kmax;
+double  xmax;
+student_one  st;
+
+void  SortChoice(student_all gr) {
+	for (int i = 1; i < (n - 1); i++) /* шаг сортировки */
+	{
+		kmax = i; xmax = gr[i].sb; st = gr[i];
+		for (int k = i + 1; i <= n; i++) /* поиск максимального элемента*/
+		{
+			if (gr[k].sb > xmax)
+			{
+				kmax = k; xmax = gr[k].sb; st = gr[k];
+			};
+			gr[kmax] = gr[i]; gr[i] = st; /*обмен местами максимального и I -элемента*/
+		}
+	};
+}
+int a3(){               /*Основная  программа*/
+	ReadData(group);    
+	cout << "  несортированные данные" << endl;
+	WriteData(group);
+	SortChoice(group);
+	cout << "  сортированные данные" << endl;
+	WriteData(group);
+return 0;
+}
+
+int main() {
+	a3();
+return 0;
+}
