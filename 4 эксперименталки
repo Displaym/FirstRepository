@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdio>
+#include <iomanip>
+using namespace std; 
+
+// Теоретический раздел 4 лаборатороной работы
+//пример 1
+struct Vkladchik
+{	// определение структуры "Вкладчик"
+	int account;   // номер счета
+	char name[10]; // имя
+	float sum;    // сумма вклада
+};
+void a1()
+{
+	//clrscr();
+	Vkladchik k; // создание экземпляра объекта 
+	cout<<" Введите счет, имя , сумму \n"; 
+	cin >> k.account >> k.name >> k.sum;
+	cout << " Cчёт" << setw(9) << "Имя" << setw(16) << "Cyммa" << endl;
+	cout << ' ' << k.account << setw(9) << k.name << setw(16) << k.sum;
+	cout<<"\n\n";
+}
+int main(){
+  a1();
+  return 0;
+}
