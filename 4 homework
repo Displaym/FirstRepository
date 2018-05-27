@@ -93,4 +93,59 @@ return 0;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 С13
+#include <iostream>
+#include <string.h>
 
+using namespace std;
+
+struct schoolboys {
+  char surname[10];
+  char name[10];
+  union adress {
+    char n_st[10];
+    int home;
+  }k;
+  int school;
+  int clas;
+}id[9];
+
+struct finish {
+  char surname1[10];
+  char name1[10];
+  union adress1 {
+    char n_st1[10];
+    int home1;
+  }k1;
+}id1[9];
+
+void ReadData() {
+  for(int i=0; i<9; i++) {
+    cin >> id[i].surname >> id[i].name >> id[i].k.n_st >> id[i].k.home >> id[i].school >> id[i].clas;
+  }
+  for(int i=0; i<9; i++) {
+    for(int j=0;j<9; j++) {
+    if(id[i].clas > 9) {
+//      strcpy(id1[j].surname1, id[i].surname);
+//      strcpy(id1[j].name1, id[i].name);
+//      strcpy(id1[j].k1.n_st1, id[i].k.n_st);
+//      strcpy(id1[j].k1.home1, id[i].k.home);
+      id1[j].surname1 = id[i].surname;
+      id1[j].name1 = id[i].name;
+      id1[j].k1.n_st1 = id[i].k.n_st;
+      id1[j].k1.home1 = id[i].k.home;
+    }
+  }
+}
+}
+
+void WriteData() {
+  for(int i=0; i<9; i++) {
+    cout << id1[i].surname1 << endl << id1[i].name1 << endl << id1[i].k1.n_st1 << endl << id1[i].k1.home1 << endl;
+  }
+}
+int main() {
+  ReadData();
+  WriteData();
+return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
