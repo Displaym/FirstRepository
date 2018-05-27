@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+struct country {
+  char Italia[10];
+  char France[10];
+  char Finland[10];
+  char England[10];
+  char Japan[10];
+  char Greece[10];
+} city;
+
+int main() {
+  cin >> city.Italia >> city.France >> city.Finland >> city.England >> city.Japan >> city.Greece;
+  cout << endl << city.Italia;
+return 0;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
