@@ -21,31 +21,49 @@ return 0;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 А13
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
 struct goods {
-  char spoon[10] = "Ложка";
+  string spoon = "Ложка";
   float price_spoon = 10.15;
 
-  char plate[10] = "Тарелка";
+  string plate = "Тарелка";
   float price_plate = 15.25;
 
-  char fork[10] = "Вилка";
+  string fork = "Вилка";
   float price_fork = 12.15;
 
-  char knife[10] = "Нож";
+  string knife = "Нож";
   float price_knife = 22.75;
 
-  char cup[10] = "Чашка";
+  string cup = "Чашка";
   float price_cup = 17.05;
-};
+}id;
+
+void ReadData() {
+  string n, m;
+  double x, y;
+  cin >> n >> m;
+  if(n == "Ложка") x = 10.15;
+  if(n == "Тарелка") x = 15.25;
+  if(n == "Вилка") x = 12.15;
+  if(n == "Нож") x = 22.75;
+  if(n == "Чашка") x = 17.05;
+
+  if(m == "Ложка") y = 10.15;
+  if(m == "Тарелка") y = 15.25;
+  if(m == "Вилка") y = 12.15;
+  if(m == "Нож") y = 22.75;
+  if(m == "Чашка") y = 17.05;
+
+  if(x > y) cout << n << " " << x <<" - дороже" ;
+    else cout << m << " " << y <<" - дороже" ;
+}
 
 int main() {
-  char x, y;
-  cout << "Введите имя первого товара: " << endl << "Введите имя второго товара: " << endl;
-  cin >> x >> y;
-  if()
+  ReadData();
 return 0;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
