@@ -47,3 +47,45 @@ int main() {
 return 0;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+struct people {
+  char gender[10];
+  int growth[7];
+  double sb;
+};
+
+typedef people all_people[3];
+all_people group;
+
+void ReadDate(all_people r) {
+  strcpy(r[1].gender, "Мужской");
+  r[1].growth[1] = 192;
+  r[1].growth[2] = 202;
+  r[1].growth[3] = 185;
+
+  strcpy(r[2].gender, "Женский");
+  r[2].growth[1] = 160;
+  r[2].growth[2] = 167;
+  r[2].growth[3] = 175;
+
+  for(int i=0; i<=2; i++) {
+    int s = 0;
+    for(int k=1; k<=3; k++)
+      s = s + r[i].growth[k];
+      r[i].sb = s/3.0;
+  }
+}
+
+void WriteData(all_people r) {
+  cout << r[1].gender << " " << r[1].sb;
+}
+int main() {
+  ReadDate(group);
+  WriteData(group);
+return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
